@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+
+<link rel="stylesheet" href="css-layout-header.css">
+<link rel="stylesheet" href="navbar-design.css">
+<style>
+
+    main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+   background: linear-gradient(to right, #e8f5e9, #f0f0f0);
+            color: #1f2937;
+}
+
+
+form {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.6s ease;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #026022;
+}
+
+
+div {
+    margin-bottom: 15px;
+}
+
+/* LABEL */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* INPUT STYLE */
+input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #009650;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0,150,80,0.3);
+}
+
+
+button {
+    width: 100%;
+    background: linear-gradient(90deg, rgb(2,96,34), rgb(0,150,80));
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+form p {
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header1">
+    <img src="logo.png" alt="logo" id="logo">
+    <h1>Login Portal</h1>
+</header>
+<nav>
+      <div class="logo">MySite</div>
+    <input type="checkbox" id="menu-toggle">
+
+<label for="menu-toggle" class="menu-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+</label>
+       <ul>
+           
+            <li><a  onclick="return confirmLogout()" href="1pages.html" >Home</a></li>
+        </ul>
+       
+       
+    </nav>  
+<main class="main">
+    <form onsubmit="teacherLogin(); return false;">
+        <div><h2>Teacher Login here</h2> <br>
+            <label for="email">Username:</label>
+            <input type="text" id="email" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+         
+        </div>  
+         <button type="submit">Login</button>
+         <br> 
+         <p>
+  <a href="tch-forgotpass.html">Forgot Password?</a>
+</p>
+
+
+    </form>
+   
+</main> 
+<footer>
+    <p>© 2026 School System</p>
+</footer>
+<script>
+    
+    function teacherLogin() {
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    const TEACHER_EMAIL = "a@a";
+    const TEACHER_PASSWORD = "admin";
+
+    if(email === TEACHER_EMAIL && password === TEACHER_PASSWORD) {
+        alert("Welcome Teacher!");
+        window.location.href = "tch-classlist.html";
+    } else {
+        alert("Invalid teacher account");
+    }
+}
+
+        function confirmLogout() {
+    let result = confirm("Are you sure you want to sign out?");
+    
+    if (result) {
+       
+        window.location.href = "login.html"; 
+    } else {
+        
+        return false;
+    }
+}
+
+</script>
+</body>
+</html>
+

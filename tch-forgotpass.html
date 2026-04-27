@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href=" css-layout-header.css">
+    <link rel="stylesheet" href="navbar-design.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+             background: linear-gradient(to right, #e8f5e9, #f0f0f0);
+        }
+
+   
+
+        
+        main {
+               flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 300px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.otp-box {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background: #f1f1f1;
+    border-radius: 8px;
+}
+
+</style>
+</head>
+<body>
+  
+
+    <header class="header1">
+        <img src="logo.png" alt="error" id="logo">
+        <h1>Login Portal</h1>
+    </header>
+  
+    <main> 
+
+<div class="container">
+
+    <h2>Forgot Password</h2>
+
+    <input type="text" id="email" placeholder="Enter email">
+
+    <button onclick="sendOTP()">Send OTP</button>
+
+    <!-- OTP DISPLAY POPUP BOX -->
+    <div class="otp-box" id="otpBox">
+        <p><b>Your OTP:</b> <span id="otpText"></span></p>
+    </div>
+
+    <input type="text" id="otpInput" placeholder="Enter OTP">
+    
+    <button onclick="verifyOTP()">Verify</button>
+    
+
+</div>
+
+
+
+    </main>
+
+    <script>
+     let otp = "";
+
+function sendOTP() {
+    otp = Math.floor(100000 + Math.random() * 900000);
+
+    document.getElementById("otpBox").style.display = "block";
+    document.getElementById("otpText").innerText = otp;
+
+    alert("OTP sent (demo): " + otp);
+}
+
+function verifyOTP() {
+    let input = document.getElementById("otpInput").value;
+    
+    if (input == otp) {
+        let newPass = prompt("Enter new password:");
+
+        if (newPass) {
+            localStorage.setItem("password", newPass);
+            alert("Password updated!");
+
+            window.location.href = "tch-classlist.html";
+        }
+    } else {
+        alert("Wrong OTP!");
+    }
+}
+</script>
+    <footer>
+        <p>&copy; 2026 My Website. All rights reserved.</p>
+    </footer>
+</body>
+</html> 

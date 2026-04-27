@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+
+<link rel="stylesheet" href="csspage1.css">
+<style>
+.main {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1rem;
+}
+
+/* CENTER BOX */
+.container {
+
+    text-align: center;
+    background: white;
+    padding: 60px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    width: min(450px, 95%);
+    animation: popIn 0.5s ease;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.container h2 {
+    margin-bottom: 20px;
+    color: rgb(2,96,34);
+}
+
+/* ROLE BOXES */
+.box {
+    margin: 15px 0;
+}
+
+/* IMAGE */
+.box a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #1f2937;
+    border: 2px solid #e5e5e5;
+    background: #fafafa;
+
+    min-height: 220px;
+}
+
+/* HOVER EFFECT */
+.box a:hover {
+    border-color: rgb(0,150,80);
+    background: rgba(0,150,80,0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0,150,80,0.2);
+}
+
+/* FOOTER FIX (optional cleaner look) */
+footer {
+    margin-top: auto;
+}
+</style>
+</head>
+<body>
+
+<header class="header1">
+    <img src="logo.png" alt="logo" id="logo">
+    <h1>Login Portal</h1>
+</header>
+
+<main class="main">
+    <div class="container">
+
+        <h2>Select Login Form</h2>
+
+        <div class="box">
+            <a href="student-login.html">
+                <img src="images-student.jpg" alt="Student Login">
+                <p>Log in as a student</p>
+            </a>
+        </div>
+
+        <div class="box">
+            <a href="teacher-login.html">
+                <img src="image-teacher.jpg" alt="Teacher Login">
+                <p>Log in as a teacher</p>
+            </a>
+        </div>
+
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 School System</p>
+</footer>
+
+</body>
+</html>
+
