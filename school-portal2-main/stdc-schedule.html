@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - BSIT 2-BRAVO</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css-layout-header.css">
+    <link rel="stylesheet" href="navbar-design.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(to right, #e8f5e9, #f0f0f0);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 1200px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+
+        th, td {
+            border: 1px solid #333;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        th {
+            background-color: #006400;
+            color: white;
+            font-weight: bold;
+        }
+
+        .time-col {
+            background-color: #006400;
+            color: white;
+            font-weight: bold;
+            width: 140px;
+        }
+
+        .green-cell {
+            background-color: #90EE90;
+            font-weight: bold;
+            line-height: 1.4;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body>
+
+    
+
+    <header class="header1">
+        <img src="logo.png" alt="Logo" id="logo">
+        <h1>Hi, Student</h1>
+    </header>
+
+    <nav>
+        <div class="logo">MySite</div>
+
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <ul>
+            <li><a href="stdc-profile.html">Profile</a></li>
+            <li class="active"><a href="stdc-schedule.html">Schedule</a></li>
+            <li><a href="stdc-grades.html">Grades</a></li>
+            <li class="divider"></li>
+            <li><a onclick="return confirmLogout()" href="student-login.html">Sign out</a></li>
+        </ul>
+
+        <div class="slider"></div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1 style="text-align: center; margin-bottom: 20px;">Weekly Schedule - BSIT 2-BRAVO</h1>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th class="time-col">Time</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                        <th>Sunday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="time-col">08:00 AM - 09:00 AM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">09:00 AM - 09:30 AM</td>
+                        <td></td>
+                        <td class="green-cell">PF102<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td class="green-cell">PATH-FIT4H<br>BSIT 2-BRAVO<br>SKILLS LAB D1</td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">09:30 AM - 10:00 AM</td>
+                        <td></td>
+                        <td class="green-cell">PF102<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td class="green-cell">PATH-FIT4H<br>BSIT 2-BRAVO<br>SKILLS LAB D1</td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">10:00 AM - 11:00 AM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">11:00 AM - 12:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">12:00 PM - 12:30 PM</td>
+                        <td></td>
+                        <td class="green-cell">PF102<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>202</td>
+                        <td></td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">12:30 PM - 01:00 PM</td>
+                        <td></td>
+                        <td class="green-cell">PF102<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>202</td>
+                        <td></td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">01:00 PM - 02:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">02:00 PM - 03:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">03:00 PM - 04:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>202</td>
+                        <td class="green-cell">CC116<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">04:00 PM - 05:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="green-cell">CC106<br>BSIT 2-BRAVO<br>202</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">05:00 PM - 06:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td class="green-cell">CC116<br>BSIT 2-BRAVO<br>201</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">06:00 PM - 07:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="time-col">07:00 PM - 08:00 PM</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function confirmLogout() {
+            if (confirm("Are you sure you want to sign out?")) {
+                window.location.href = "student-login.html";
+            }
+            return false;
+        }
+    </script>
+</body>
+    <!-- BACKGROUND -->
+<div class="bg-design">
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+
+    <span class="emoji e1">📚</span>
+    <span class="emoji e2">✏️</span>
+    <span class="emoji e3">📊</span>
+    <span class="emoji e4">🧠</span>
+    <span class="emoji e5">🎓</span>
+    <span class="emoji e6">💻</span>
+    <span class="emoji e7">📝</span>
+    <span class="emoji e8">📖</span>
+</div>
+
+</html>

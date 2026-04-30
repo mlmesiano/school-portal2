@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile</title>
+
+<link rel="stylesheet" href="css-layout-header.css">
+<link rel="stylesheet" href="navbar-design.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    background:linear-gradient(to right,#e8f5e9,#f0f0f0);
+    color:#1f2937;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* ================= BACKGROUND DESIGN ================= */
+.bg-design{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+/* BLOBS */
+.blob{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:0.35;
+    animation:floatBlob 10s infinite ease-in-out;
+}
+
+.blob1{
+    width:350px;
+    height:350px;
+    background:#00c853;
+    top:0%;
+    left:-5%;
+}
+
+.blob2{
+    width:450px;
+    height:450px;
+    background:#00e676;
+    bottom:-10%;
+    right:-5%;
+}
+
+.blob3{
+    width:300px;
+    height:300px;
+    background:#76ff03;
+    top:40%;
+    left:55%;
+}
+
+/* FLOATING EMOJIS */
+.emoji{
+    position:absolute;
+    font-size:42px;
+    opacity:0.20;
+    animation:floatEmoji 12s infinite ease-in-out;
+}
+
+.e1{top:8%;left:8%;}
+.e2{top:18%;left:42%;}
+.e3{top:30%;left:75%;}
+.e4{top:50%;left:15%;}
+.e5{top:65%;left:55%;}
+.e6{top:78%;left:82%;}
+.e7{top:85%;left:20%;}
+.e8{top:12%;left:88%;}
+
+@keyframes floatBlob{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-40px);
+    }
+}
+
+@keyframes floatEmoji{
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-25px) rotate(10deg);
+    }
+}
+
+/* KEEP CONTENT ABOVE BACKGROUND */
+header,
+nav,
+main,
+footer{
+    position:relative;
+    z-index:2;
+}
+
+/* ================= MAIN ================= */
+main{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+/* ================= PROFILE CONTAINER ================= */
+.profile-container{
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(10px);
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    width:100%;
+    max-width:1100px;
+    padding:35px;
+    animation:rgbGlow 6s linear infinite;
+}
+
+/* HEADER */
+.profile-header{
+    text-align:center;
+    margin-bottom:30px;
+    border-bottom:2px solid #d1fae5;
+    padding-bottom:20px;
+}
+
+.profile-header h2{
+    font-size:2rem;
+    background:linear-gradient(90deg,#00ff99,#00ccff,#ff00cc,#ffff00);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* GRID */
+.profile-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+/* INFO CARD */
+.info-item{
+    background:rgba(255,255,255,0.85);
+    padding:20px;
+    border-radius:14px;
+    position:relative;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.info-item:hover{
+    transform:translateY(-5px);
+}
+
+.info-item::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:5px;
+    height:100%;
+    background:linear-gradient(180deg,#00ff99,#00ccff,#ff00cc,#ffff00);
+}
+
+.info-item label{
+    display:block;
+    margin-bottom:8px;
+    font-size:13px;
+    font-weight:bold;
+    color:#555;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.info-item span{
+    font-size:18px;
+    color:#111827;
+    font-weight:bold;
+}
+
+/* RGB GLOW */
+@keyframes rgbGlow{
+    0%{
+        box-shadow:0 0 15px #00ff99;
+    }
+    25%{
+        box-shadow:0 0 15px #00ccff;
+    }
+    50%{
+        box-shadow:0 0 15px #ff00cc;
+    }
+    75%{
+        box-shadow:0 0 15px #ffff00;
+    }
+    100%{
+        box-shadow:0 0 15px #00ff99;
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .profile-info{
+        grid-template-columns:1fr;
+    }
+
+    .profile-container{
+        padding:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-design">
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+
+    <span class="emoji e1">📚</span>
+    <span class="emoji e2">✏️</span>
+    <span class="emoji e3">📊</span>
+    <span class="emoji e4">🧠</span>
+    <span class="emoji e5">🎓</span>
+    <span class="emoji e6">💻</span>
+    <span class="emoji e7">📝</span>
+    <span class="emoji e8">📖</span>
+</div>
+
+<header class="header1">
+    <img src="logo.png" alt="error" id="logo">
+    <h1>Hi, Student</h1>
+</header>
+
+<nav>
+    <div class="logo">MySite</div>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <ul>
+        <li class="active"><a href="stdc-profile.html">Profile</a></li>
+        <li><a href="stdc-schedule.html">Schedule</a></li>
+        <li><a href="stdc-grades.html">Grades</a></li>
+        <li class="divider"></li>
+        <li><a onclick="return confirmLogout()" href="student-login.html">Sign out</a></li>
+    </ul>
+
+    <div class="slider"></div>
+</nav>
+
+<main>
+
+<div class="profile-container">
+
+    <div class="profile-header">
+        <h2>Student Information</h2>
+    </div>
+
+    <div class="profile-info">
+
+        <div class="info-item">
+            <label>Name</label>
+            <span id="name"></span>
+        </div>
+
+        <div class="info-item">
+            <label>Student ID</label>
+            <span id="std-id"></span>
+        </div>
+
+        <div class="info-item">
+            <label>Course</label>
+            <span id="course"></span>
+        </div>
+
+        <div class="info-item">
+            <label>Contact</label>
+            <span id="contact"></span>
+        </div>
+
+        <div class="info-item">
+            <label>Section</label>
+            <span id="section"></span>
+        </div>
+
+        <div class="info-item">
+            <label>Skills</label>
+            <span id="skills"></span>
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 My Website. All rights reserved.</p>
+</footer>
+
+<script>
+let user = JSON.parse(localStorage.getItem("user"));
+
+document.getElementById("name").innerText = user.name;
+document.getElementById("std-id").innerText = user.id;
+document.getElementById("course").innerText = user.course;
+document.getElementById("contact").innerText = user.contact;
+document.getElementById("section").innerText = user.section || "N/A";
+document.getElementById("skills").innerText = user.skills || "N/A";
+
+function confirmLogout(){
+    let result = confirm("Are you sure you want to go to the homepage?");
+
+    if(result){
+        window.location.href = "1pages.html";
+    }else{
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

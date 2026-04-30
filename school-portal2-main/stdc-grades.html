@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Grades</title>
+
+<link rel="stylesheet" href="css-layout-header.css">
+<link rel="stylesheet" href="navbar-design.css">
+
+<style>
+
+/* ================= RESET ================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body{
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(to right,#e8f5e9,#f0f0f0);
+    overflow-x: hidden;
+}
+
+/* ================= FLOATING BACKGROUND ================= */
+.bg-design{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* BLOBS */
+.blob{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.28;
+    animation: floatBlob 10s infinite ease-in-out;
+}
+
+.blob1{
+    width: 350px;
+    height: 350px;
+    background: #00ff99;
+    top: 5%;
+    left: 5%;
+}
+
+.blob2{
+    width: 450px;
+    height: 450px;
+    background: #00ccff;
+    right: -100px;
+    bottom: 0;
+}
+
+.blob3{
+    width: 300px;
+    height: 300px;
+    background: #76ff03;
+    left: 40%;
+    top: 40%;
+}
+
+@keyframes floatBlob{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-40px);
+    }
+}
+
+/* EMOJIS */
+.emoji{
+    position: absolute;
+    font-size: 42px;
+    opacity: 0.18;
+    animation: floatEmoji 10s infinite ease-in-out;
+}
+
+.e1{top:10%;left:5%;}
+.e2{top:20%;left:30%;}
+.e3{top:15%;right:10%;}
+.e4{top:50%;left:15%;}
+.e5{top:70%;left:35%;}
+.e6{top:65%;right:15%;}
+.e7{top:35%;right:25%;}
+.e8{bottom:10%;left:8%;}
+
+@keyframes floatEmoji{
+    0%,100%{
+        transform: translateY(0) rotate(0deg);
+    }
+    50%{
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+/* KEEP CONTENT ABOVE BACKGROUND */
+header,
+nav,
+main,
+footer{
+    position: relative;
+    z-index: 1;
+}
+
+/* ================= MAIN ================= */
+main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ================= CONTAINER ================= */
+.container{
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    padding: 35px;
+    border-radius: 18px;
+    width: 100%;
+    max-width: 700px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 0.6s ease;
+}
+
+/* RGB TOP BAR */
+.container::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg,#00ff99,#00ccff,#ff00cc,#ffff00);
+    animation: rgbMove 5s linear infinite;
+}
+
+@keyframes rgbMove{
+    0%{filter:hue-rotate(0deg);}
+    100%{filter:hue-rotate(360deg);}
+}
+
+/* FADE */
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= TITLES ================= */
+h2{
+    color: rgb(2,96,34);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h3{
+    margin-bottom: 25px;
+    color: #333;
+    text-align: center;
+}
+
+/* ================= TABLE ================= */
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th{
+    background: linear-gradient(90deg,rgb(2,96,34),rgb(0,150,80));
+    color: white;
+    padding: 14px;
+    font-size: 15px;
+}
+
+td{
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    background: rgba(255,255,255,0.85);
+}
+
+tr:hover td{
+    background: rgba(0,200,83,0.08);
+}
+
+/* GRADE TEXT */
+td p{
+    font-weight: bold;
+    color: #026022;
+}
+
+/* ================= FOOTER ================= */
+footer{
+    text-align: center;
+    padding: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING BACKGROUND -->
+<div class="bg-design">
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+
+    <span class="emoji e1">📚</span>
+    <span class="emoji e2">🎓</span>
+    <span class="emoji e3">🧠</span>
+    <span class="emoji e4">📖</span>
+    <span class="emoji e5">✏️</span>
+    <span class="emoji e6">💻</span>
+    <span class="emoji e7">📊</span>
+    <span class="emoji e8">🔥</span>
+</div>
+
+<!-- HEADER -->
+<header class="header1">
+    <img src="logo.png" alt="error" id="logo">
+    <h1>Hi, Student</h1>
+</header>
+
+<!-- NAVBAR -->
+<nav>
+
+    <div class="logo">MySite</div>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <ul>
+        <li><a href="stdc-profile.html">Profile</a></li>
+        <li><a href="stdc-schedule.html">Schedule</a></li>
+        <li class="active">
+            <a href="stdc-grades.html">Grades</a>
+        </li>
+
+        <li class="divider"></li>
+
+        <li>
+            <a onclick="return confirmLogout()"
+               href="student-login.html">
+               Sign out
+            </a>
+        </li>
+    </ul>
+
+    <div class="slider"></div>
+
+</nav>
+
+<!-- MAIN -->
+<main>
+
+<div class="container">
+
+    <h2>Teacher Grading Sheet</h2>
+
+    <h3 id="name"></h3>
+
+    <table>
+
+        <tr>
+            <th>Subject</th>
+            <th>Grade</th>
+        </tr>
+
+        <tr>
+            <td>Math</td>
+            <td><p id="math"></p></td>
+        </tr>
+
+        <tr>
+            <td>Science</td>
+            <td><p id="science"></p></td>
+        </tr>
+
+        <tr>
+            <td>OOP</td>
+            <td><p id="oop"></p></td>
+        </tr>
+
+        <tr>
+            <td>English</td>
+            <td><p id="english"></p></td>
+        </tr>
+
+        <tr>
+            <td>Event Driven Programming</td>
+            <td><p id="event-driven"></p></td>
+        </tr>
+
+        <tr>
+            <td>Rizal</td>
+            <td><p id="rizal"></p></td>
+        </tr>
+
+        <tr>
+            <td>Popular Culture</td>
+            <td><p id="popular-culture"></p></td>
+        </tr>
+
+    </table>
+
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 My Website. All rights reserved.</p>
+</footer>
+
+<script>
+
+let user =
+    JSON.parse(localStorage.getItem("user"));
+
+let grades =
+    JSON.parse(localStorage.getItem("grades")) || {};
+
+if(user){
+
+    document.getElementById("name").innerText =
+        user.name;
+
+    let studentGrades = grades[user.id];
+
+    if(studentGrades){
+
+        document.getElementById("math").innerText =
+            studentGrades.math || "-";
+
+        document.getElementById("science").innerText =
+            studentGrades.science || "-";
+
+        document.getElementById("oop").innerText =
+            studentGrades.oop || "-";
+
+        document.getElementById("english").innerText =
+            studentGrades.english || "-";
+
+        document.getElementById("event-driven").innerText =
+            studentGrades.eventDriven || "-";
+
+        document.getElementById("rizal").innerText =
+            studentGrades.rizal || "-";
+
+        document.getElementById("popular-culture").innerText =
+            studentGrades.popularCulture || "-";
+
+    }else{
+
+        document.getElementById("math").innerText = "No grade";
+        document.getElementById("science").innerText = "No grade";
+        document.getElementById("oop").innerText = "No grade";
+        document.getElementById("english").innerText = "No grade";
+        document.getElementById("event-driven").innerText = "No grade";
+        document.getElementById("rizal").innerText = "No grade";
+        document.getElementById("popular-culture").innerText = "No grade";
+    }
+
+}else{
+
+    document.getElementById("name").innerText =
+        "Unknown Student";
+}
+
+function confirmLogout(){
+
+    let result =
+        confirm("Are you sure you want to sign out?");
+
+    if(result){
+
+        window.location.href = "1pages.html";
+
+    }else{
+
+        return false;
+    }
+}
+
+</script>
+
+</body>
+</html>

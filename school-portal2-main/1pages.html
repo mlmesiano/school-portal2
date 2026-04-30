@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Form</title>
+
+<link rel="stylesheet" href="css-layout-header.css">
+
+<style>
+
+/* ================= GLOBAL LOADER ================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+    background:rgba(240, 255, 245, 0.95);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+}
+
+.spinner{
+    width:75px;
+    height:75px;
+    border:6px solid rgba(0,0,0,0.08);
+    border-top:6px solid #00c853;
+    border-right:6px solid #00e676;
+    border-radius:50%;
+    animation:spin 0.9s linear infinite;
+    box-shadow:0 0 25px rgba(0,200,83,0.35);
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg);}
+}
+
+body.loaded #loader{
+    opacity:0;
+    pointer-events:none;
+    transition:0.4s ease;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    padding:40px 20px;
+}
+
+/* ================= LOGIN CONTAINER ================= */
+
+.container{
+
+    width:100%;
+    max-width:700px;
+
+    background:rgba(255,255,255,0.95);
+    backdrop-filter:blur(12px);
+
+    padding:50px;
+
+    border-radius:22px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,0.18);
+
+    text-align:center;
+
+    position:relative;
+    z-index:2;
+
+    animation:popIn 0.6s ease;
+
+    border:1px solid rgba(0,200,83,0.15);
+}
+
+/* glowing top border */
+.container::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    border-radius:22px 22px 0 0;
+    background:linear-gradient(90deg,#00ff99,#00ccff,#ff00cc,#ffff00);
+    animation:rgbMove 5s linear infinite;
+}
+
+@keyframes popIn{
+    from{transform:scale(0.95);opacity:0;}
+    to{transform:scale(1);opacity:1;}
+}
+
+@keyframes rgbMove{
+    0%{filter:hue-rotate(0deg);}
+    100%{filter:hue-rotate(360deg);}
+}
+
+/* ================= TITLE ================= */
+
+.container h2{
+    margin-bottom:35px;
+    color:#0b6b2a;
+    font-size:38px;
+    letter-spacing:1px;
+}
+
+/* ================= ROLE BOXES ================= */
+
+.box{
+    margin:25px 0;
+}
+
+.box a{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    text-decoration:none;
+
+    color:#1f2937;
+
+    border:2px solid #e5e5e5;
+
+    background:linear-gradient(145deg,#ffffff,#f7faf7);
+
+    transition:0.3s ease;
+
+    min-height:240px;
+
+    position:relative;
+    overflow:hidden;
+}
+
+/* hover glow effect */
+.box a::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at center, rgba(0,200,83,0.15), transparent 60%);
+    opacity:0;
+    transition:0.3s ease;
+}
+
+.box a:hover::after{
+    opacity:1;
+}
+
+.box a:hover{
+    transform:translateY(-6px);
+    border-color:#00c853;
+    box-shadow:0 15px 30px rgba(0,200,83,0.25);
+}
+
+/* ================= IMAGES ================= */
+
+.box img{
+    width:150px;
+    margin-bottom:18px;
+    transition:0.3s ease;
+}
+
+.box a:hover img{
+    transform:scale(1.05);
+}
+
+/* ================= TEXT ================= */
+
+.box p{
+    font-size:30px;
+    font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:auto;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:700px){
+
+    .container{
+        padding:30px 20px;
+    }
+
+    .container h2{
+        font-size:28px;
+    }
+
+    .box p{
+        font-size:22px;
+    }
+
+    .box img{
+        width:110px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= GLOBAL LOADER ================= -->
+<div id="loader">
+    <div class="spinner"></div>
+</div>
+
+<!-- ================= GLOBAL BACKGROUND (UNCHANGED) ================= -->
+
+<div class="bg-design">
+
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+    <span class="blob blob4"></span>
+    <span class="blob blob5"></span>
+
+    <span class="emoji e1">📚</span>
+    <span class="emoji e2">✏️</span>
+    <span class="emoji e3">🎓</span>
+    <span class="emoji e4">📅</span>
+    <span class="emoji e5">🧠</span>
+    <span class="emoji e6">💻</span>
+    <span class="emoji e7">📖</span>
+    <span class="emoji e8">📝</span>
+    <span class="emoji e9">📊</span>
+    <span class="emoji e10">🏫</span>
+    <span class="emoji e11">⭐</span>
+    <span class="emoji e12">🔥</span>
+
+</div>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header1">
+    <img src="logo.png" alt="logo" id="logo">
+    <h1>Login Portal</h1>
+</header>
+
+<!-- ================= MAIN ================= -->
+
+<main class="main">
+
+    <div class="container">
+
+        <h2>Select Login Form</h2>
+
+        <div class="box">
+            <a href="student-login.html">
+                <img src="images-student.jpg" alt="Student Login">
+                <p>Log in as a student</p>
+            </a>
+        </div>
+
+        <div class="box">
+            <a href="teacher-login.html">
+                <img src="image-teacher.jpg" alt="Teacher Login">
+                <p>Log in as a teacher</p>
+            </a>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+    <p>© 2026 School System</p>
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+});
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teacher Login</title>
+
+<link rel="stylesheet" href="css-layout-header.css">
+<link rel="stylesheet" href="navbar-design.css">
+
+<style>
+
+/* ================= MAIN ================= */
+main{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ================= FORM ================= */
+form{
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(8px);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: popIn 0.5s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* RGB TOP BORDER */
+form::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg,#00ff99,#00ccff,#ff00cc,#ffff00);
+    animation: rgbMove 5s linear infinite;
+}
+
+@keyframes rgbMove{
+    0%{filter:hue-rotate(0deg);}
+    100%{filter:hue-rotate(360deg);}
+}
+
+/* POP ANIMATION */
+@keyframes popIn{
+    from{
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* TITLE */
+form h2{
+    text-align: center;
+    margin-bottom: 25px;
+    color: rgb(2,96,34);
+    font-size: 28px;
+}
+
+/* INPUT GROUP */
+.input-group{
+    margin-bottom: 18px;
+}
+
+label{
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+input{
+    width: 100%;
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+input:focus{
+    outline: none;
+    border-color: #00c853;
+    box-shadow: 0 0 10px rgba(0,200,83,0.25);
+}
+
+/* BUTTON */
+button{
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(90deg,rgb(2,96,34),rgb(0,150,80));
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0,150,80,0.3);
+}
+
+/* LINKS */
+.form-links{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-links a{
+    color: green;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form-links a:hover{
+    text-decoration: underline;
+}
+
+/* ================= FLOATING BACKGROUND ================= */
+.bg-design{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* BLOBS */
+.blob{
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.28;
+    animation: floatBlob 10s infinite ease-in-out;
+}
+
+.blob1{
+    width: 350px;
+    height: 350px;
+    background: #00ff99;
+    top: 5%;
+    left: 5%;
+}
+
+.blob2{
+    width: 450px;
+    height: 450px;
+    background: #00ccff;
+    right: -100px;
+    bottom: 0;
+}
+
+.blob3{
+    width: 300px;
+    height: 300px;
+    background: #76ff03;
+    left: 40%;
+    top: 40%;
+}
+
+@keyframes floatBlob{
+    0%,100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-40px);
+    }
+}
+
+/* EMOJIS */
+.emoji{
+    position: absolute;
+    font-size: 42px;
+    opacity: 0.18;
+    animation: floatEmoji 10s infinite ease-in-out;
+}
+
+.e1{top:10%;left:5%;}
+.e2{top:20%;left:30%;}
+.e3{top:15%;right:10%;}
+.e4{top:50%;left:15%;}
+.e5{top:70%;left:35%;}
+.e6{top:65%;right:15%;}
+.e7{top:35%;right:25%;}
+.e8{bottom:10%;left:8%;}
+
+@keyframes floatEmoji{
+    0%,100%{
+        transform: translateY(0) rotate(0deg);
+    }
+    50%{
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+/* KEEP CONTENT ABOVE BACKGROUND */
+header,
+nav,
+main,
+footer{
+    position: relative;
+    z-index: 1;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING BACKGROUND -->
+<div class="bg-design">
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+
+    <span class="emoji e1">📚</span>
+    <span class="emoji e2">🎓</span>
+    <span class="emoji e3">🧠</span>
+    <span class="emoji e4">📖</span>
+    <span class="emoji e5">✏️</span>
+    <span class="emoji e6">💻</span>
+    <span class="emoji e7">📊</span>
+    <span class="emoji e8">🔥</span>
+</div>
+
+<!-- HEADER -->
+<header class="header1">
+    <img src="logo.png" alt="logo" id="logo">
+    <h1>Login Portal</h1>
+</header>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="logo">MySite</div>
+
+    <input type="checkbox" id="menu-toggle">
+
+    <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <ul>
+        <li>
+            <a onclick="return confirmLogout()" href="1pages.html">
+                Home
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- MAIN -->
+<main>
+
+<form onsubmit="teacherLogin(); return false;">
+
+    <h2>Teacher Login</h2>
+
+    <div class="input-group">
+        <label for="email">Username</label>
+        <input type="text" id="email" name="username" required>
+    </div>
+
+    <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+
+    <button type="submit">Login</button>
+
+    <div class="form-links">
+        <a href="tch-forgotpass.html">Forgot Password?</a>
+    </div>
+
+</form>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 School System</p>
+</footer>
+
+<script>
+
+function teacherLogin(){
+
+    let email =
+        document.getElementById("email").value.trim();
+
+    let password =
+        document.getElementById("password").value.trim();
+
+    const TEACHER_EMAIL = "a@a";
+    const TEACHER_PASSWORD = "admin";
+
+    if(email === TEACHER_EMAIL &&
+       password === TEACHER_PASSWORD){
+
+        alert("Welcome Teacher!");
+        window.location.href = "tch-classlist.html";
+
+    }else{
+        alert("Invalid teacher account");
+    }
+}
+
+function confirmLogout(){
+
+    let result =
+        confirm("Are you sure you want to go back?");
+
+    if(result){
+        window.location.href = "1pages.html";
+    }else{
+        return false;
+    }
+}
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <link rel="stylesheet" href=" css-layout-header.css">
+    <link rel="stylesheet" href="navbar-design.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* MAIN CONTAINER */
+
+        
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #e8f5e9, #f0f0f0);
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
+    padding: 30px;
+}
+
+/* TITLE */
+.main h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: rgb(2,96,34);
+}
+
+/* GRID LAYOUT */
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* SECTION CARD */
+.section {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+   
+}
+
+
+/* SECTION TITLE */
+.section h2 {
+    margin-bottom: 15px;
+    color: rgb(0,150,80);
+    border-left: 5px solid rgb(0,150,80);
+    padding-left: 10px;
+}
+
+/* TABLE STYLE */
+.section table {
+    width: 100%;
+    border-collapse: collapse;
+    cursor: pointer;
+}
+
+/* TABLE HEADER */
+.section th {
+    background: rgb(0,150,80);
+    color: white;
+    padding: 10px;
+    text-align: left;
+     
+}
+
+/* TABLE DATA */
+.section td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* ZEBRA STRIPES */
+.section tr:nth-child(even) {
+    background: #f9f9f9;
+}
+/* modal */
+.modal {
+  display: flex;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(5px);
+  z-index: 9999;
+
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background: #333;
+  width: 450px;
+  max-width: 95%;
+  padding: 25px;
+  border-radius: 14px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+  border-top: 4px solid rgb(0,150,80);
+
+  animation: pop 0.25s ease;
+  color: white;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.modal-content h2 {
+  margin-bottom: 10px;
+  color: rgb(0,150,80);
+  text-align: center;
+}
+.modal-content p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+.modal-content table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+  color: white;
+}
+
+.modal-content th {
+  background: rgb(0,150,80);
+  padding: 10px;
+  text-align: left;
+}
+
+.modal-content td {
+  padding: 8px;
+  border-bottom: 1px solid #1e293b;
+}
+.modal-content input {
+  width: 100%;
+  padding: 7px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+
+  background: #1e293b;
+  color: white;
+}
+
+.modal-content input:focus {
+  border: 1px solid rgb(0,150,80);
+}
+.modal-content button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+
+  background: linear-gradient(90deg, rgb(2,96,34), rgb(0,150,80));
+  color: white;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.modal-content button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 10px rgba(0,150,80,0.5);
+}
+
+.close {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: #94a3b8;
+  transition: 0.2s;
+}
+
+.close:hover {
+  color: red;
+  transform: scale(1.2);
+}
+/* HOVER ROW */
+.section tr:hover {
+    background: #e8f5e9;
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+    .main {
+        padding: 15px;
+    }
+}
+        
+</style>
+</head>
+<body>
+
+    
+  
+
+    <header class="header1">
+        <img src="logo.png" alt="error" id="logo">
+        <h1>Teacher Portal</h1>
+    </header>
+   <nav>
+    <div class="logo">MySite</div>
+
+
+    <input type="checkbox" id="menu-toggle">
+
+
+    <label for="menu-toggle" class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+  
+    <ul>
+       <li class="active"><a href="tch-classlist.html">Classes</a></li>
+       <li><a href="tch-schedule.html">Schedule</a></li>
+       
+        <li class="divider"></li>
+
+        <li><a onclick="return confirmLogout()" href="teacher-login.html">Sign out</a></li>
+    </ul>
+
+    <div class="slider"></div>
+</nav>  
+
+
+<main class="main">
+
+  <h1>Student List by Section</h1>
+
+  <div class="section-grid">
+
+    <!-- SECTION ALPHA -->
+    <div class="section">
+      <h2>Section Alpha</h2>
+      <table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+
+  <tbody id="alpha-list"></tbody>
+
+</table>
+    </div>
+
+    <!-- SECTION BRAVO -->
+    <div class="section">
+      <h2>Section Bravo</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+   
+        </tr>
+                              
+        <tbody id="bravo-list"></tbody>
+      </table>
+    </div>
+
+    <!-- SECTION CHARLIE -->
+    <div class="section">
+      <h2>Section Charlie</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+        </tr>
+        <tbody id="charlie-list"></tbody>
+
+      </table>
+    </div>
+
+  </div>
+
+</main>
+<div id="studentModal" class="modal">
+
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>Student Profile</h2>
+
+    <p><b>Name:</b> <span id="m-name"></span></p>
+    <p><b>ID:</b> <span id="m-id"></span></p>
+    <p><b>Course:</b> <span id="m-course"></span></p>
+    <p><b>Section:</b> <span id="m-section"></span></p>
+
+    <h3>Grades</h3>
+
+    <table>
+      <tr><th>Subject</th><th>Grade</th></tr>
+<tr><td>Math</td><td><input id="g-math" oninput="limitGrade(this)" required></td></tr>
+<tr><td>Science</td><td><input id="g-science" oninput="limitGrade(this)" required></td></tr>
+<tr><td>OOP</td><td><input id="g-oop" oninput="limitGrade(this)" required></td></tr>
+<tr><td>English</td><td><input id="g-english" oninput="limitGrade(this)" required></td></tr>
+<tr><td>Popular Culture</td><td><input id="g-popular-culture" oninput="limitGrade(this)" required></td></tr>
+<tr><td>Event Driven Programming</td><td><input id="g-event-driven" oninput="limitGrade(this)" required></td></tr>
+<tr><td>Rizal</td><td><input id="g-rizal" oninput="limitGrade(this)" required></td></tr>
+    </table>
+
+    <button onclick="saveGrades()">Save Grades</button>
+
+  </div>
+</div>
+            
+
+<script> 
+const users = [
+    { id: "1234", name: "maron", section: "Alpha", course:"BSIT" },
+    { id: "5678", name: "ronver", section: "Bravo", course:"BSIT" },
+    { id: "1212", name: "jay", section: "Charlie", course:"BSIT" }
+];
+
+
+
+let staticUsers = users;
+let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+
+let allUsers = [...staticUsers, ...registeredUsers];
+
+allUsers.forEach(user => {
+
+   let row = `
+<tr onclick="openStudent('${user.id}')">
+    <td>${user.id}</td>
+    <td>${user.name}</td>
+</tr>
+`;
+
+    if (user.section === "Alpha") {
+        document.getElementById("alpha-list").innerHTML += row;
+    }
+    else if (user.section === "Bravo") {
+        document.getElementById("bravo-list").innerHTML += row;
+    }
+    else if (user.section === "Charlie") {
+        document.getElementById("charlie-list").innerHTML += row;
+    }
+});
+let selectedUser = null;
+
+function openStudent(id) {
+
+    let staticUsers = users;
+    let registeredUsers = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+
+    let allUsers = [...staticUsers, ...registeredUsers];
+
+    selectedUser = allUsers.find(u => u.id === id);
+
+    // fill profile
+    document.getElementById("m-name").innerText = selectedUser.name;
+    document.getElementById("m-id").innerText = selectedUser.id;
+    document.getElementById("m-course").innerText = selectedUser.course || "-";
+    document.getElementById("m-section").innerText = selectedUser.section;
+
+    // load grades
+    let grades = JSON.parse(localStorage.getItem("grades")) || {};
+    let g = grades[id] || {};
+
+    document.getElementById("g-math").value = g.math || "";
+    document.getElementById("g-science").value = g.science || "";
+    document.getElementById("g-oop").value = g.oop || "";
+    document.getElementById("g-english").value = g.english || "";
+    document.getElementById("g-popular-culture").value = g.popularCulture || "";
+    document.getElementById("g-event-driven").value = g.eventDriven || "";  
+    document.getElementById("g-rizal").value = g.rizal || "";
+    
+
+    document.getElementById("studentModal").style.display = "flex";
+}
+function limitGrade(input) {
+    let val = input.value.replace(/[^0-9]/g, '');
+
+    input.value = val;
+
+    if (val === "") {
+        input.style.border = "";
+        input.title = "";
+        return;
+    }
+
+    let num = parseInt(val);
+
+    if (num < 1 || num > 100) {
+        input.style.border = "2px solid red";
+        input.title = "Grade must be 1–100";
+    } else {
+        input.style.border = "2px solid rgb(0,150,80)";
+        input.title = "Valid grade";
+    }
+}
+
+function closeModal() {
+    document.getElementById("studentModal").style.display = "none";
+}
+function saveGrades() {
+
+    if (!selectedUser) return;
+
+    let grades = JSON.parse(localStorage.getItem("grades")) || {};
+
+    grades[selectedUser.id] = {
+        math: document.getElementById("g-math").value,
+        science: document.getElementById("g-science").value,
+        oop: document.getElementById("g-oop").value,
+        english: document.getElementById("g-english").value
+        ,popularCulture: document.getElementById("g-popular-culture").value,
+        eventDriven: document.getElementById("g-event-driven").value,
+        rizal: document.getElementById("g-rizal").value
+    };
+
+    localStorage.setItem("grades", JSON.stringify(grades));
+
+    alert("Grades saved!");
+
+    closeModal(); //  AUTO CLOSE
+};
+window.onclick = function(e) {
+    let modal = document.getElementById("studentModal");
+    if (e.target === modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto";
+    }
+}
+window.onload = function() {
+    document.getElementById("studentModal").style.display = "none";
+}
+
+function confirmLogout() {
+    let result = confirm("Are you sure you want to go to the homepage?");
+    
+    if (result) {
+        
+        window.location.href = "1pages.html"; 
+    } else {
+       
+        return false;
+    }
+} 
+
+
+</script>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Website. All rights reserved.</p>
+    </footer>
+</body>
+    <!-- BACKGROUND -->
+<div class="bg-design">
+    <span class="blob blob1"></span>
+    <span class="blob blob2"></span>
+    <span class="blob blob3"></span>
+
+    <span class="emoji e1">📚</span>
+    <span class="emoji e2">✏️</span>
+    <span class="emoji e3">📊</span>
+    <span class="emoji e4">🧠</span>
+    <span class="emoji e5">🎓</span>
+    <span class="emoji e6">💻</span>
+    <span class="emoji e7">📝</span>
+    <span class="emoji e8">📖</span>
+</div>
+
+</html> 
