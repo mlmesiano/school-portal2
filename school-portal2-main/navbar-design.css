@@ -7,7 +7,8 @@ nav {
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
-}
+     z-index: 1000;
+    }
 
 nav .logo {
     color: white;
@@ -98,7 +99,7 @@ nav ul li a:hover {
     }
 
     #menu-toggle:checked ~ ul {
-        max-height: 300px;
+        max-height: 500px;
     }
     .slider {
         display: none;

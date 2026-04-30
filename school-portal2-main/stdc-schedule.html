@@ -45,7 +45,10 @@
             width: 100%;
             border-collapse: collapse;
             background-color: white;
-        }
+            min-width: 900px; 
+ 
+}
+        
 
         th, td {
             border: 1px solid #333;
@@ -77,6 +80,11 @@
             margin-bottom: 20px;
             color: #1f2937;
         }
+        @media (max-width: 768px) {
+    table {
+        min-width: 900px;
+    }
+}
     </style>
 </head>
 <body>
